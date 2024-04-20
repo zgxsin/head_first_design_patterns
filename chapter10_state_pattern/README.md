@@ -11,12 +11,9 @@ anything, about the state objects.
 
 ![img.png](../resource/chapter10_state_pattern/state_pattern.png)
 
+
 ## Problem State Machine
-```plantuml
-@startuml
-[*] --> NoQuarter: Entry Point
-@enduml
-```
+![img.png](../resource/chapter10_state_pattern/problem_state_machine.png)
 
 ## Knowledge used in this example
 
