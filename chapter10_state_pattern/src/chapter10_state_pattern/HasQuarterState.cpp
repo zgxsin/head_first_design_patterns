@@ -3,7 +3,7 @@
 #include <random>
 
 namespace chapter10_state_pattern {
-    HasQuarterState::HasQuarterState(GumballMachine &gumballMachine) : gen_(rd_()), gumballMachine_(gumballMachine) {
+    HasQuarterState::HasQuarterState(GumballMachine &gumballMachine) : gen_(std::random_device()()), gumballMachine_(gumballMachine) {
     }
 
     void HasQuarterState::insertQuarter() {
@@ -17,6 +17,7 @@ namespace chapter10_state_pattern {
 
     void HasQuarterState::turnCrank() {
         std::cout << "You turned..." << std::endl;
+        // It seems that you cannot add the line below as a member variable.
         std::uniform_int_distribution<> distribution(1, 10);
         auto generatorNumber = distribution(gen_);
         if (generatorNumber == 1 && gumballMachine_.getNumberOfGumballs() > 1) {

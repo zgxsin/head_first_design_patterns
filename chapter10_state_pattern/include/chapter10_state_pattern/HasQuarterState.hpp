@@ -24,11 +24,8 @@ namespace chapter10_state_pattern {
         }
 
     private:
-        // Seed
-        std::random_device rd_;
         // Random number engine
         std::mt19937 gen_;
-
         GumballMachine &gumballMachine_;
 
     };
