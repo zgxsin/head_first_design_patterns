@@ -17,6 +17,7 @@ add_executable(${PROJECT_NAME}
         src/${PROJECT_NAME}/QuackCounter.cpp
         src/${PROJECT_NAME}/duck_factory/DuckFactory.cpp
         src/${PROJECT_NAME}/duck_factory/CountingDuckFactory.cpp
+        src/${PROJECT_NAME}/Flock.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
