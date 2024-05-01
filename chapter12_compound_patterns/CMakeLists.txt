@@ -15,6 +15,8 @@ add_executable(${PROJECT_NAME}
         src/${PROJECT_NAME}/RubberDuck.cpp
         src/${PROJECT_NAME}/DuckSimulator.cpp
         src/${PROJECT_NAME}/QuackCounter.cpp
+        src/${PROJECT_NAME}/duck_factory/DuckFactory.cpp
+        src/${PROJECT_NAME}/duck_factory/CountingDuckFactory.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

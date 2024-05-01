@@ -6,20 +6,22 @@
 #include "chapter12_compound_patterns/RubberDuck.hpp"
 #include "chapter12_compound_patterns/GooseAdapter.hpp"
 #include "chapter12_compound_patterns/QuackCounter.hpp"
+#include "chapter12_compound_patterns/duck_factory/CountingDuckFactory.hpp"
 #include <iostream>
 #include <memory>
 
 namespace chapter12_compound_patterns {
 
     void DuckSimulator::simulate() {
-        // The fundamental of polymorphism in C++:
-        // - A pointer or reference of a base class type can refer to objects of its derived classes.
-        // - An object of a base class cannot directly refer to an object of its derived class.
-        // - Derived object contains a Base part and a Derived part.
-        QuackableInterface* redheadDuck = new QuackCounter(std::make_shared<RedheadDuck>(RedheadDuck()));
-        QuackableInterface* mallardDuck = new QuackCounter(std::make_shared<MallardDuck>(MallardDuck()));
-        QuackableInterface* duckCall = new QuackCounter(std::make_shared<DuckCall>(DuckCall()));
-        QuackableInterface* rubberDuck = new QuackCounter(std::make_shared<RubberDuck>(RubberDuck()));
+        AbstractDuckFactory *duckFactory = new CountingDuckFactory();
+        simulate(duckFactory);
+    }
+
+    void DuckSimulator::simulate(AbstractDuckFactory* duckFactory) {
+        QuackableInterface* redheadDuck = duckFactory->createRedheadDuck();
+        QuackableInterface* mallardDuck = duckFactory->createMallardDuck();
+        QuackableInterface* duckCall = duckFactory->createDuckCall();
+        QuackableInterface* rubberDuck = duckFactory->createRubberDuck();
 
         Goose goose = Goose();
         QuackableInterface* gooseDuck = new GooseAdapter(goose);
