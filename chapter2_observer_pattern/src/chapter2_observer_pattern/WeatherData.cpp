@@ -16,6 +16,8 @@ namespace chapter2_observer_pattern {
     }
 
     void WeatherData::notifyObservers() {
+        // If you want to “push” data to the observers you can pass the data as a data object to the notifyObserver(arg)
+        // method. If not, then the Observer has to “pull” the data it wants from the Observable object passed to it.
         for (auto observer: observers_) {
             observer->update(temperature_, humidity_, pressure_);
         }
